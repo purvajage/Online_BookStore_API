@@ -1,0 +1,29 @@
+{
+  "name": "online_bookstore_api",
+  "version": "1.0.0",
+  "description": "RESTful API for an online bookstore that allows users to browse, search, and purchase books. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purvajage/Online-Bookstore-API.git"
+  },
+  "author": "purva jage",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/purvajage/Online-Bookstore-API/issues"
+  },
+  "homepage": "https://github.com/purvajage/Online-Bookstore-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
