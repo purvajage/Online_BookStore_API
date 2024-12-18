@@ -2,23 +2,26 @@ const express=require("express");
 const mongoose=require("mongoose");
 const cors=require("cors");
 const dotenv=require("dotenv");
-const bookroutes=require("./routes/bookroutes");
+// const bookroutes=require("./routes/bookroutes");
 const authroutes=require("./routes/authroutes");
-const orderroutes=require("./models/ordermodel");
-const reviewroutes=require("./routes/reviewroutes");
+// const orderroutes=require("./routes/orderroutes");
+// const reviewroutes=require("./routes/reviewroutes");
 dotenv.config();
-const app=expres();
+const app=express();
 app.use(cors());
 app.use(express.json());
 //routes
 app.use("/api/auth",authroutes);
-app.use("/api/book",bookroutes);
-app.use("/api/review",reviewroutes);
-app.use("/api/order",orderroutes);
+// app.use("/api/book",bookroutes);
+// app.use("/api/review",reviewroutes);
+// app.use("/api/order",orderroutes);
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Database connected'))
-  .catch(err => console.log(err));
+
+mongoose.connect("mongodb://localhost:27017/book_api")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Could not connect to MongoDB", err));
+
+
 
 // Start the server
 const port = process.env.PORT;

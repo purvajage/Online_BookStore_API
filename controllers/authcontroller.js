@@ -2,9 +2,9 @@ const usermodel=require("../models/usermodel");
 const bcrypt=require("bcrypt");
 const JWT=require("jsonwebtoken");
 //register
-const registerController=async(req,res)=>{
+const registercontroller=async(req,res)=>{
     try{
-        const{userName,email,password,phone,address}=req.bodyl
+        const{userName,email,password,phone,address}=req.body;
          // Validation
          if (!userName || !email || !password || !phone || !address ) {
             return res.status(400).send({
