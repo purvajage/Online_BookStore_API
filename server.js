@@ -2,8 +2,9 @@ const express=require("express");
 const mongoose=require("mongoose");
 const cors=require("cors");
 const dotenv=require("dotenv");
-// const bookroutes=require("./routes/bookroutes");
+
 const authroutes=require("./routes/authroutes");
+const bookroutes=require("./routes/bookroutes");
 // const orderroutes=require("./routes/orderroutes");
 // const reviewroutes=require("./routes/reviewroutes");
 dotenv.config();
@@ -12,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 //routes
 app.use("/api/auth",authroutes);
-// app.use("/api/book",bookroutes);
+app.use("/api/books",bookroutes);
 // app.use("/api/review",reviewroutes);
 // app.use("/api/order",orderroutes);
 // Connect to MongoDB
