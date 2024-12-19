@@ -6,7 +6,7 @@ const dotenv=require("dotenv");
 const authroutes=require("./routes/authroutes");
 const bookroutes=require("./routes/bookroutes");
 const orderroutes=require("./routes/orderroutes");
-// const reviewroutes=require("./routes/reviewroutes");
+const reviewroutes=require("./routes/reviewroutes");
 dotenv.config();
 const app=express();
 app.use(cors());
@@ -14,7 +14,7 @@ app.use(express.json());
 //routes
 app.use("/api/auth",authroutes);
 app.use("/api/books",bookroutes);
-// app.use("/api/review",reviewroutes);
+app.use("/api/review",reviewroutes);
 app.use("/api/order",orderroutes);
 // Connect to MongoDB
 
