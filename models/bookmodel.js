@@ -10,6 +10,12 @@ const bookSchema=new mongoose.Schema(
             type:String,
             required:[true,"author name is required"],
         },
+        genre:{
+            type:String
+        },
+        keywords:{
+            type:String
+        },
         bookprice:{
           type:String,
         required:[true,"book price is required"],
