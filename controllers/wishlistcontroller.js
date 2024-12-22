@@ -34,6 +34,19 @@ const wishlistcontroller={
             res.status(500).json({message:"error removing book from wishlist",error});
          }
     },
-    
+    getuserwishlist:async(req,res)=>{
+        try{
+            const{userId}=req.params;
+            const wishlist=await wishlist.findOne({userId}).populate('books.bookId');
+            if(!wishlist){
+                return res.status(404).json({message:"wishlist not found"});
+            }
+            res.status(200).json(wishlist);
+        }catch(error){
+            res.status(500).json({message:"error fetching wishlist",error});
+        }
+    },
 
-}
+
+};
+module.exports=wishlistcontroller;

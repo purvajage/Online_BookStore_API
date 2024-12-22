@@ -22,5 +22,10 @@ const userSchema=new mongoose.Schema(
         },
     },{timestamps:true}
 );
+userSchema.virtual('userId').get(function () {
+    return this._id.toHexString();
+  });
+  userSchema.set('toJSON', { virtuals: true });
+
 const User = mongoose.model("User", userSchema);
 module.exports=User;
