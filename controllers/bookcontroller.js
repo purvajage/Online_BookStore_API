@@ -9,28 +9,7 @@ const bookcontroller = {
             res.status(500).json({ message: "Error fetching books", error });
         }
     },
-    getSpecificBooks: async (req, res) => {
-        try {
-            const { title, author, genre, minPrice, maxPrice, keywords } = req.query;
-
-            let query = {};
-
-            if (title) query.title = new RegExp(title, 'i');
-            if (author) query.author = new RegExp(author, 'i');
-            if (genre) query.genre = genre;
-            if (keywords) query.keywords = { $in: keywords.split(',') }; 
-            if (minPrice || maxPrice) {
-                query.price = {};
-                if (minPrice) query.price.$gte = parseFloat(minPrice);
-                if (maxPrice) query.price.$lte = parseFloat(maxPrice);
-            }
-
-            const books = await book.find(query); 
-            res.status(200).json(books);
-        } catch (error) {
-            res.status(500).json({ message: "Error fetching books", error });
-        }
-    },
+   
     getBookId: async (req, res) => {
         try {
             const { id } = req.params;
