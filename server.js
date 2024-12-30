@@ -12,13 +12,13 @@ dotenv.config();
 const app=express();
 app.use(cors());
 app.use(express.json());
-//routes
+
 app.use("/api/auth",authroutes);
 app.use("/api/books",bookroutes);
 app.use("/api/review",reviewroutes);
 app.use("/api/order",orderroutes);
 app.use("/api/wishlist",wishlistroutes);
-// Connect to MongoDB
+
 
 mongoose.connect("mongodb://localhost:27017/book_api")
   .then(() => console.log("Connected to MongoDB"))
@@ -26,7 +26,7 @@ mongoose.connect("mongodb://localhost:27017/book_api")
 
 
 
-// Start the server
+
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

@@ -13,7 +13,7 @@ const bookcontroller = {
     getBookId: async (req, res) => {
         try {
             const { id } = req.params;
-            const foundBook = await book.findById(id); // Changed variable name to avoid conflict
+            const foundBook = await book.findById(id); 
             if (!foundBook) {
                 return res.status(404).json({ message: "Book not found" });
             }
@@ -24,9 +24,9 @@ const bookcontroller = {
     },
     createBook: async (req, res) => {
         try {
-          const newBook = new book(req.body); // Create a new book from request body
-          const savedBook = await newBook.save(); // Save the book to the database
-          res.status(201).json(savedBook); // Send the saved book as response
+          const newBook = new book(req.body); 
+          const savedBook = await newBook.save();
+          res.status(201).json(savedBook); 
         } catch (error) {
           res.status(400).json({ message: "Error creating book", error });
         }
